@@ -584,4 +584,40 @@
 
 	};
 
+	$( "form" ).submit(function() {
+
+		var name = $("#name").val();
+		var email = $("#email").val();
+		var subject = $("#subject").val();
+		var message = $("#message").val();
+		$('#errMessage').show();
+
+		if(name == '')
+		{
+			$('#errMessage').html("Please enter your name.");
+		}
+		else if(email == '')
+		{
+			$('#errMessage').html("Please enter your email.");
+		}
+		else if(subject == '')
+		{
+			$('#errMessage').html("Please enter your subject.");
+		}
+		else if(message == '')
+		{
+			$('#errMessage').html("Please enter your message.");
+		}
+		else
+		{
+			$('#errMessage').html('Message has been sent.');			
+			$('#errMessage').css('color','green');
+			$("#name").val('');
+		    $("#email").val('');
+		    $("#subject").val('');
+		    $("#message").val('');
+		}
+		return false;
+	});
+
 })(jQuery);
